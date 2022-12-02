@@ -15,35 +15,29 @@
 {% include "partials/page-header.html" %}
 
         <main>
-
+            {% if total > 0 %}
             <h4>
-                <strong>2 Pontos</strong> encontrados
+                <strong>{{total}} pontos</strong> encontrados
             </h4>
 
             <div class="cards">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Colectoria">
-                    <h1>Colectoria</h1>
-                    <h3>Resíduos Eletrônicos, Lâmpadas</h3>
-                    <p>Rio do Sul, Santa Catarina <br>
-                       Guilherme Gemballa, Jardim América <br>
-                       Número 260
+                {% for place in places %}
+                 <div class="card">
+                    <img src="{{place.imagem}}" alt="{{place.name}}">
+                    <h1>{{place.name}}</h1>
+                    <h3>{{place.items}}</h3>
+                    <p>{{place.city}}, {{place.state}}<br>
+                       {{place.address}}<br>
+                       {{place.address2}}
                     </p>
                     
+                    
+                </div>
+                   {% endfor %}       
                 </div>
 
-                <div class="cards">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Colectoria">
-                        <h1>Pappersider</h1>
-                        <h3>Papéis e Papelão</h3>
-                        <p>Rio do Sul, Santa Catarina <br>
-                           Guilherme Gemballa, Jardim América <br>
-                           Número 260
-                        </p>
-                        
-                    </div>
-            </div>
-
+                {%else%}
+                <h4><strong>Nenhum</strong> local encontrado</h4>
+            {% endif %}
         </main>
 {% endblock content %}

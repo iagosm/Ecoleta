@@ -67,6 +67,7 @@ function handleSelectedItem(event){
 
     // Pegar apenas o Id do item
     const itemId = itemLi.dataset.id
+    console.log('ITEM ID: ',itemId)
 
    
 
@@ -93,9 +94,7 @@ function handleSelectedItem(event){
     selectedItems.push(itemId)
     }
 
-    console.log(selectedItems);
-
-
+    console.log('Selected Itens: ',selectedItems)
     // Atualizar o campo escondido com os dados selecionados
     collectedItems.value = selectedItems
 
